@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.left {
+  flex: 1;
+  margin-right: 20px; /* Điều chỉnh khoảng cách giữa phần left và right */
+}
+
+.main_image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.right {
+  flex: 1;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+h4 {
+  margin-top: 10px;
+}
+
+.add {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.add span {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+}
+
+label {
+  margin: 0 10px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
