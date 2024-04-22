@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<root>
+
+ <title>Cong ty TNHH MTV Vang bac da quy Sai gon : Bang Ty gia vang SJC</title>
+
+ <url>http://www.sjc.com.vn/</url>
+
+ <ratelist updated="09:56:28 AM 13/04/2024" unit="ngàn đồng/lượng">
+
+  <city name="CẦN THƠ">
+
+   <item buy="80.600" sell="83.100" type="Vàng SJC 1L - 10L - 1KG"></item>
+
+   <item buy="74.300" sell="76.200" type="Vàng nhẫn SJC 99,99 1 chỉ, 2 chỉ, 5 chỉ"></item>
+
+   <item buy="74.300" sell="76.300" type="Vàng nhẫn SJC 99,99 0,3 chỉ, 0,5 chỉ"></item>
+
+   <item buy="74.200" sell="75.500" type="Vàng nữ trang 99,99%"></item>
+
+   <item buy="72.752" sell="74.752" type="Vàng nữ trang 99%"></item>
+
+   <item buy="54.281" sell="56.781" type="Vàng nữ trang 75%"></item>
+
+   <item buy="41.671" sell="44.171" type="Vàng nữ trang 58,3%"></item>
+
+   <item buy="29.137" sell="31.637" type="Vàng nữ trang 41,7%"></item>
+
+  </city>
+
+  
+
+ </ratelist>
+
+</root>
+
