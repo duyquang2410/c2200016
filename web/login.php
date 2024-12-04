@@ -91,61 +91,99 @@
     </style>
 
 </head>
+<?php
+include 'conn.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user = $_POST["user"];
+    $pass = $_POST["pass"];
+    
+    if (checkLogin($conn, $user, $pass)) {
+        $_SESSION["user"] = $user;
+        header('Location: index.php');
+        exit; // Đảm bảo dừng ngay sau khi chuyển hướng
+    } else {
+        echo "Sai username hoặc password";
+    }
+}
+function checkLogin($conn, $user, $pass) {
+    $sql = "SELECT * FROM KHACHHANG WHERE HoTen_KH = '" . $user . "'";
+    $result = $conn->query($sql);
 
+    // Kiểm tra kết quả của truy vấn
+    if ($result === false) {
+        die("Lỗi truy vấn SQL: " . $conn->error);
+    }
 
-
+    // Kiểm tra số lượng dòng kết quả trả về
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $_SESSION['khid'] = $row['Ma_KH'];
+        $_SESSION['name'] = $row["HoTen_KH"];
+        $_SESSION['sdt'] = $row['Sdt_KH'];
+        $_SESSION['email'] =  $row["Email_KH"];
+        $_SESSION['NgaySinh_KH'] =  $row["NgaySinh_KH"];
+        
+        // Kiểm tra mật khẩu
+        if ($row["MatKhau_KH"] == $pass) {
+            return true;  // Đăng nhập thành công
+        } else {
+            return false; // Sai mật khẩu
+        }
+    } else {
+        return false; // Tài khoản không tồn tại
+    }
+}
+?>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div class="col-lg-6">
+    <div class="col-lg-6">
 
-            <div class="card o-hidden">
-                <div class="card-body">
-                    <div class="text-center">
-                        <h1 class="h4 card-title">Đăng Nhập</h1>
-                    </div>
-                    <form action="log1.php" method="post" class="user">
-                    <div class="form-group">
-    <input type="text" class="form-control form-control-user" id="exampleInputUsername"
-           aria-describedby="usernameHelp" placeholder="Nhập Tên" name="name">
+        <div class="card o-hidden">
+            <div class="card-body">
+                <div class="text-center">
+                    <h1 class="h4 card-title">Đăng Nhập</h1>
+                </div>
+                <form action="login.php" method="post" class="user">
+                <div class="form-group">
+<input type="text" class="form-control form-control-user" id="exampleInputUsername"
+       aria-describedby="usernameHelp" placeholder="Nhập Tên" id="user" name="user">
 </div>
 
-    <div class="form-group">
-        <input type="password" class="form-control form-control-user" id="exampleInputPassword"
-               placeholder="Nhập Mật Khẩu" name="password">
+<div class="form-group">
+    <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+           placeholder="Nhập Mật Khẩu"  id="pass" name="pass">
+</div>
+<div class="form-group">
+    <div class="custom-control custom-checkbox small">
+        <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
+        <label class="custom-control-label" for="customCheck">Nhớ Mật Khẩu</label>
     </div>
-    <div class="form-group">
-        <div class="custom-control custom-checkbox small">
-            <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
-            <label class="custom-control-label" for="customCheck">Nhớ Mật Khẩu</label>
-        </div>
-    </div>
-    <button class="btn btn-primary btn-user btn-block" type="submit">Đăng Nhập</button>
+</div>
+<button class="btn btn-primary btn-user btn-block" type="submit">Đăng Nhập</button>
 </form>
 
-                    <hr>
-                    
-                    <div class="text-center register-link">
-                        <a href="fromnhap.php">Tạo Tài Khoản Mới!</a>
-                    </div>
+                <hr>
+                
+                <div class="text-center register-link">
+                    <a href="dangky.php">Tạo Tài Khoản Mới!</a>
                 </div>
             </div>
-
         </div>
 
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="ketnoi/vendor/jquery/jquery.min.js"></script>
-    <script src="ketnoi/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</div>
 
-    <!-- Core plugin JavaScript-->
-    <script src="ketnoi/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="ketnoi/vendor/jquery/jquery.min.js"></script>
+<script src="ketnoi/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="ketnoi/js/sb-admin-2.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="ketnoi/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="ketnoi/js/sb-admin-2.min.js"></script>
 
 </body>
-
-</html>

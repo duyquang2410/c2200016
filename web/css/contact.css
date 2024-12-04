@@ -1,0 +1,7 @@
+.dropdown-menu {
+    padding: 0 !important; /* Đặt padding là 0 */
+}
+
+.dropdown-menu .dropdown-item {
+    margin: 0 !important; /* Đặt margin là 0 */
+}

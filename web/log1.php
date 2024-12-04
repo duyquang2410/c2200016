@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "web";
+$dbname = "web_vang";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -19,7 +19,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
  
   $row = $result->fetch_assoc();
-  
+  $_SESSION['khid'] =$row["Ma_KH"];
   $cookie_name = "user";
   $cookie_value = $row['HoTen_KH'] ;
   setcookie($cookie_name, $cookie_value, time() + (86400 / 24), "/");

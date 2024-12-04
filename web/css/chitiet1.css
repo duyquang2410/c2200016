@@ -1,0 +1,240 @@
+/* Thiết lập font chữ mặc định cho trang */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Phần tử chứa nội dung */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Phần chứa hình ảnh chinh*/
+.left {
+    width: 60%;
+}
+
+/* Hình ảnh chính */
+.main_image img {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Danh sách các hình ảnh nhỏ */
+
+/* Danh sách các hình ảnh nhỏ */
+.thumbnail_images {
+    margin-top: 20px;
+    float: right; /* Đặt các hình ảnh nhỏ bên phải */
+    clear: both; /* Đảm bảo không có phần tử nào bị float trái hoặc float phải */
+    
+}
+
+
+.thumbnail {
+    width: 30%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Phần thông tin sản phẩm */
+.right {
+    width: 35%;
+    align-self: center; /* Căn giữa theo chiều dọc */
+   
+}
+
+/* Tên sản phẩm */
+h3 {
+    margin-top: 0;
+}
+
+/* Mô tả sản phẩm */
+.description{
+    font-style: italic;
+    font-size: 16px;
+}
+.trongluong, .danhmuc, .chatlieu {
+    font-style: italic;
+    font-size: smaller;
+}
+
+
+/* Giá sản phẩm */
+.gia {
+    color: red;
+    white-space: nowrap; 
+}
+
+/* Phần chọn số lượng */
+.add {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; 
+}
+.price_section .price_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 10px 0;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  
+  .price_section .price_container .box {
+    min-width: 300px;
+    max-width: 360px;
+    height: 550px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 35px 10px;
+    padding: 45px 0 25px 0;
+    text-align: center;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 0px 6px 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  
+  .price_section .price_container .box .img-box {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .banner_section {
+    margin-top: 0;
+    padding-top: 10px;
+  }
+  
+  
+  
+  .price_section .price_container .box .img-box img {
+    width: 280px;
+  }
+  
+  .price_section .price_container .box h6 {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .price_section .price_container .box .detail-box h5 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  .price_section .price_container .box .detail-box h5 span {
+    color: #fbb534;
+  }
+  
+  .price_section .price_container .box .detail-box a {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid #000000;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 15px;
+  }
+  
+  .price_section .price_container .box:hover a {
+    border-color: #fbb534;
+    color: #fbb534;
+  }
+  
+  .price_section .price_btn {
+    display: inline-block;
+    padding: 8px 40px;
+    background-color: #0d0806;
+    border: 1px solid #0d0806;
+    color: #ffffff;
+    border-radius: 0;
+  }
+  
+  .price_section .price_btn:hover {
+    background-color: transparent;
+    color: #0d0806;
+  }
+
+.add span {
+    cursor: pointer;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 0 5px; 
+}
+
+.add label {
+    margin: 0 10px;
+}
+
+/* Nút thêm vào giỏ hàng */
+/* CSS cho class button */
+.button {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+    background-color: white;
+    color: yellow;
+}
+
+/* Trong file CSS hiện tại hoặc file CSS mới */
+body {
+  
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.box {
+    width: calc(33.33% - 10px); /* Sử dụng calc để tính toán chiều rộng, trừ đi khoảng cách giữa các hộp */
+    float: left; /* Hiển thị hộp bên trái */
+    margin-right: 10px; /* Khoảng cách giữa các hộp */
+    margin-bottom: 20px; /* Khoảng cách dưới của mỗi hộp */
+    border: 1px solid #ccc; /* Viền của hộp */
+    border-radius: 5px; /* Bo góc của hộp */
+}
+
+/* CSS cho hình ảnh sản phẩm */
+.img-box img {
+    width: 100%; /* Hình ảnh sẽ đầy đủ chiều rộng của hộp */
+    height: auto; /* Chiều cao tự động để đảm bảo tỉ lệ khung hình không bị biến dạng */
+    border-top-left-radius: 5px; /* Bo góc trên bên trái của hình ảnh */
+    border-top-right-radius: 5px; /* Bo góc trên bên phải của hình ảnh */
+}
+/* Nút "Thêm vào giỏ hàng" */

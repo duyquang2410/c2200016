@@ -1,9 +1,11 @@
 
+
 <?php 
 // Gắn kết nối tới cơ sở dữ liệu
-require_once "conn.php"; // Đường dẫn tới file kết nối
+require_once "conn.php"; 
+require_once "cay_menu.php";
 
-// Tiếp tục viết mã để hiển thị danh sách sản phẩm, sử dụng biến $conn đã kết nối
+
 ?>
 
 
@@ -23,82 +25,158 @@ require_once "conn.php"; // Đường dẫn tới file kết nối
 
   <title>Lodge</title>
 
-  <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+ 
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/sina-nav.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Poppins:400,600,700&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/sanpham.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <script src="navbar.js"></script>
 
   <style>
+    .price_container .box {
+  width: 300px; 
+}
+
+
+.img-box img {
+  max-width: 100%;
+  height: auto;
+}
+/* Màu vàng cho gạch chân */
+.golden-underline {
+    text-decoration: underline;
+    text-decoration-color: #fbb534;
+}
+.price_section .price_container .box .detail-box a {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid #000000;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 1px;
+  }
+  .price_section .price_container .box .img-box img {
+    width: 280px;
+  }
+  h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+  line-height: 1;
+}
+a {
+    color: black;
    
-</style>
+}
+.fa, .fa-brands, .fa-classic, .fa-regular, .fa-sharp, .fa-solid, .fab, .far, .fas {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: var(--fa-display, inline-block);
+    font-style: normal;
+    font-variant: normal;
+    line-height: 2.5;
+    text-rendering: auto;
+}
+.header_section .container-fluid {
+    padding-right: 30px;
+    padding-left: 20px;
+}
+
+.icons a {
+    margin-right: 18px; /* Khoảng cách giữa các phần tử */
+}
+
+
+
+    </style>
 
 
 </head>
 
 <body class="sub_page">
+    <div class="hero_area">
+        <!-- Header section -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo.png" alt="">
+                        <span>Lodge</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php">Trang Chủ</a>
+                            </li>
+                           
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="category.php" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Danh mục
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown"
+                                    style="background-color: #ffc800;">
+                                    <?php echo createMenu(0, $menus); ?>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="jewellery.php">Sản Phẩm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.php">Liên Hệ</a>
+                            </li>
+                            <li class="nav-item">
+                  <a class="nav-link" href="tygia.php">Bảng tỷ giá</a>
+                </li>
+                <form class="d-flex">
+                        <div class="icons">
+                            <?php
+                            if (!isset($_SESSION["user"])){
+                          ?>
+                            <a href="login.php"><i class="fa-regular fa-user"></i></a>
+                            <?php
+                            }
+                            else 
+                            {
+                                ?>
+                            <i> <label for="">Xin chào: </label><?php echo $_SESSION["user"]; ?></i>
+                            <a href='logout.php'><i class="fa-solid fa-right-from-bracket"></i></a>
+                            <?php
+                            }
+                            ?>
+                            <a href="cart.php"><i class="fa-solid fa-cart-shopping"></i><span
+                                    style="height: 13px;width: 13px;background: #ffc800;font-size: 10px;color: #ffffff;line-height: 13px;text-align: center;font-weight: 700;display: inline-block;border-radius: 50%;position: absolute;">
+                                    <?php require 'slsp.php'; ?>
 
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
-            <img src="images/logo.png" alt="">
-            <span>
-              Lodge
-            </span>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+                                </span></a>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
-              <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.php">Trang Chủ <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.php">Tin Tức</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="jewellery.php">Sản Phẩm</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.php">Liên Hệ</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="login.php">Đăng Nhập</a>
-                </li>
-              </ul>
-
+                        </div>
+                    </form>
+                        </ul>
+                    </div>
+               
+                </nav>
             </div>
-            <div class="quote_btn-container ">
-              <a href="">
-                <img src="images/cart.png" alt="">
-                <div class="cart_number">
-                  0
-                </div>
-              </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-              </form>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
-  </div>
+        </header>
 
+  <!-- end header section -->
+                          </div>
   
 
   <!-- end item section -->
@@ -110,11 +188,16 @@ require_once "conn.php"; // Đường dẫn tới file kết nối
 $sql = "SELECT 
 sanpham.HinhAnh_SP, 
 sanpham.Ten_SP, 
-chitietgiaodich.DonGia AS Gia_SP 
+sanpham.Ma_SP,
+don_gia.gia AS Gia_SP,
+danhmuc.Ten_DM,
+danhmuc.Ma_DM
 FROM 
 sanpham 
 INNER JOIN 
-chitietgiaodich ON sanpham.Ma_SP = chitietgiaodich.Ma_SP 
+don_gia ON sanpham.Ma_SP = don_gia.Ma_SP 
+INNER JOIN 
+danhmuc ON sanpham.Ma_DM = danhmuc.Ma_DM 
 ;
 ";
 $result = mysqli_query($conn, $sql);
@@ -126,7 +209,7 @@ $result = mysqli_query($conn, $sql);
     <div class="container">
         <div class="heading_container">
             <h2>
-                Sản Phẩm 
+                Danh sách sản Phẩm 
             </h2>
         </div>
         <div class="price_container">
@@ -150,9 +233,7 @@ $result = mysqli_query($conn, $sql);
                             <h5>
                                 <span><?php echo number_format($row['Gia_SP']); ?>đ</span> <!-- Hiển thị giá của sản phẩm -->
                             </h5>
-                            <a href="chitiet.php">
-                                Mua Ngay
-                            </a>
+                            <a href="chitiet.php?id=<?php echo $row['Ma_SP']; ?>">Mua Ngay</a>
                         </div>
                     </div>
             <?php 
@@ -176,7 +257,10 @@ $result = mysqli_query($conn, $sql);
 
 
   <!-- info section -->
-  <section class="info_section ">
+ 
+  
+ <!-- info section -->
+ <section class="info_section ">
     <div class="container">
       <div class="info_container">
         <div class="row">
@@ -195,7 +279,7 @@ $result = mysqli_query($conn, $sql);
               <a href="">
                 <img src="images/location.png" alt="">
                 <span>
-                  Address
+                  Cần Thơ
                 </span>
               </a>
             </div>
@@ -215,7 +299,7 @@ $result = mysqli_query($conn, $sql);
               <a href="">
                 <img src="images/mail.png" alt="">
                 <span>
-                  demo@gmail.com
+                  jewelley@gmail.com
                 </span>
               </a>
             </div>
@@ -224,25 +308,24 @@ $result = mysqli_query($conn, $sql);
         <div class="info_form">
           <div class="d-flex justify-content-center">
             <h5 class="info_heading">
-              Newsletter
+             Thông tin
             </h5>
           </div>
           <form action="">
-            <div class="email_box">
-              <label for="email2">Enter Your Email</label>
-              <input type="text" id="email2">
-            </div>
-            <div>
-              <button>
-                subscribe
-              </button>
-            </div>
-          </form>
+  <div class="email_box">
+   
+    <input type="email" id="email2" name="email2" placeholder="Nhập email của bạn">
+  </div>
+  <div>
+    <button type="submit">Đăng ký</button>
+  </div>
+</form>
+
         </div>
         <div class="info_social">
           <div class="d-flex justify-content-center">
             <h5 class="info_heading">
-              Follow Us
+              Kết nối với chúng tôi
             </h5>
           </div>
           <div class="social_box">
@@ -269,8 +352,8 @@ $result = mysqli_query($conn, $sql);
   <!-- footer section -->
   <section class="container-fluid footer_section">
     <p>
-      &copy; <span id="displayYear"></span> All Rights Reserved By
-      <a href="https://html.design/">Free Html Templates</a>
+      &copy; <span id="displayYear"></span> By
+      <a href="https://html.design/"> Jewellery Store</a>
     </p>
   </section>
   <!-- footer section -->
